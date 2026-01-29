@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Processing</title>
+  
+  <style>
+    /* General body styling */
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    /* Styling for the form container */
+    #formContainer {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #ffffff;
+    }
+
+    /* Hide the form initially */
+    .hidden {
+      display: none;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #paymentSuccess {
+      color: #155724;
+      background-color: #d4edda;
+      border: 1px solid #c3e6cb;
+      padding: 15px;
+      border-radius: 5px;
+      margin-top: 20px;
+      display: none; /* Initially hidden */
+    }
+  </style>
+</head>
+<body>
+  <!-- Button to start the payment process -->
+  <button id="payButton">Pay</button>
+
+  <!-- Payment form container -->
+  <div id="formContainer" class="hidden">
+    <form id="paymentForm">
+      <h2>Payment Details</h2>
+
+      <label for="cardName">Cardholder Name:</label>
+      <input type="text" id="cardName" name="cardName" placeholder="Enter your name" required />
+
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter your card number" required />
+
+      <label for="expiryDate">Expiry Date:</label>
+      <input type="text" id="expiryDate" name="expiryDate" placeholder="MM/YY" required />
+
+      <label for="cvv">CVV:</label>
+      <input type="password" id="cvv" name="cvv" placeholder="Enter CVV" required />
+
+      <button type="submit">Submit Payment</button>
+    </form>
+  </div>
+
+  <!-- Payment success message -->
+  <div id="paymentSuccess">Payment successful! Thank you for your purchase.</div>
+  <script>
+    // References to HTML elements
+    const payButton = document.getElementById('payButton');
+    const formContainer = document.getElementById('formContainer');
+    const paymentForm = document.getElementById('paymentForm');
+    const paymentSuccess = document.getElementById('paymentSuccess');
+  
+    // Show the form when the "Pay" button is clicked
+    payButton.addEventListener('click', function() {
+      formContainer.classList.remove('hidden'); // Show form
+    });
+  
+    // Handle form submission
+    paymentForm.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      // Validate the expiry date
+      const expiry = document.getElementById("expiryDate");
+      const expiryValue = expiry.value.trim();
+  
+      if (expiryValue === "") { 
+          alert("Please enter the expiry date");
+          return; // Stop further processing
+      } else if (expiryValue.length < 4) {
+          alert("Expiry date must be in the format MM/YY (4 characters)");
+          return; // Stop further processing
+      }
+  
+      // Simulate payment processing
+      setTimeout(() => {
+        formContainer.classList.add('hidden'); // Hide the form
+        paymentSuccess.style.display = 'block'; // Show success message
+      }, 1000); // Simulates a delay in payment processing
+    });
+  </script>
+  
+
+
+
+</body>
+</html>  

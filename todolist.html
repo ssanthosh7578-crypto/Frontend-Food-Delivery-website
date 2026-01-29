@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo list</title>
+</head>
+<body>
+    <h1>MY to do list</h1>
+    <input type="text" id="typing" placeholder="type here"><button id="add" onclick=adding()>Add</button>
+    <ul id="task-list">task</ul>
+    <ul id="completed">completed</ul>
+</body>
+<script>
+    const input = document.getElementById("typing");
+    const list = document.getElementById("task-list");
+
+    function adding() {
+        const value = input.value.trim();
+
+        if (value !== "") {
+            const li = document.createElement("li");
+         
+            const del = document.createElement("button");
+
+            li.textContent = value;      // ✅ set text FIRST
+            del.textContent = "delete";
+
+            del.onclick = function () {
+                const com=document.createElement("li");
+                com.textContent=value;
+                completed.append(com);
+                li.remove();
+
+            };
+
+            li.append(del);              // ✅ then append button
+            list.append(li);
+
+            input.value = "";
+        } else {
+            alert("please enter a task");
+        }
+    }
+</script>
+
+</html>

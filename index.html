@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<style>
+     .item{
+      float: left;
+      width: 250px;
+      margin: 70px;
+      height: 250px;
+      margin-left: 150px;
+    }
+    .last{
+        float: left;
+        width: 756px;
+    }
+    .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            background-color: whitesmoke;
+            padding: 20px;
+            margin-top: -240px;
+        }
+        .box {
+            background-color: whitesmoke;
+            height: 400px;
+            width: 30%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+        }
+        .box h3 {
+            color: black;
+        }
+        .box a {
+            color: #333;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+        .pic:hover{
+          transform: scale(0.9);
+        }
+        .pic{
+          transition: 1.0s;
+        }
+         body.showCart .cartcontainer{
+          inset: 0 0 0 auto;
+          transition: inset 1.1s ease-in-out;
+        }
+      
+      
+        .cartcontainer {
+  background-color: gray;
+  width: 400px;
+  position: fixed;
+  inset: 0 -400px 0 auto;
+  display: flex;
+  flex-direction: column; /* Ensure items stack vertically */
+  padding: 10px;
+}
+
+.cart-box {
+  display: block; /* Make each cart item a block element */
+  border-bottom: 1px solid #ddd; /* Add a bottom border for separation */
+  margin-bottom: 10px; /* Add some margin at the bottom for spacing */
+  padding: 10px; /* Add some padding inside each cart box */
+  background-color: white; /* Set a different background color for better contrast */
+  
+}
+
+.productname,
+.price {
+  color: black;
+  margin: 10px; /* Adjust margins for proper spacing */
+  float: left;
+  padding: auto;
+}
+
+.productimg img {
+  width: 60px;
+}
+
+.qty input {
+  width: 40px;
+  height: 20px;
+  margin-left: 10px;
+  padding-top: 10px;
+  float: left;
+ 
+}
+.price,.qty,.remove{
+  margin-top: -30px;
+}
+        
+       
+</style>
+</head>
+<body class="" style="background-color: whitesmoke;" >
+   <nav class="a" style="background-color: gainsboro;height: 40px;"><p style="text-align: center;color: black;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;padding: 6px;font-size: large;  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5);margin-top: -1PX;">"Taste the Joy, Savor the Magic"& The big offers hurry up...!Free Shipping on orders above ₹500</p></nav>
+   <div class="a">
+    <a href="#" class="glyphicon glyphicon-search" style="margin-left: 200px;margin-top: 80px;color: black;"></a>
+    <h1 style="color: blue; text-align: center; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;margin-top: -40px;">Foodeiii..!</h1>
+    <div class="b" style="display: flex; ">
+    <a href="file:///E:/santho%20pro/loginpage.html" class="glyphicon glyphicon-user"  style="margin-left: 1200px; margin-top: -35px;color: black;"></a>
+    <div class="cartimg" style="margin-left: 50px;margin-top: -40px;cursor: pointer;" > <img src="C:\Users\ssant\OneDrive\Pictures\download (1).png" style="height: 20px;"></div>
+  </div><br>
+<!--cart start-->
+
+<div class="cartcontainer">
+  <h1 style="color: black; text-align: center;text-decoration: underline;margin-left: 70px;">Your cart items</h1>
+<!-- <div class="productimg">
+    <img src="C:\Users\ssant\OneDrive\Pictures\download (4).jpeg" alt="" style="width: 60px;">
+  </div>
+  <div class="productname">bun</div>
+  <div class="price">RS:100</div>
+  <div class="qty"><input type="number"style="width: 40px;height=20px;margin-left:10px;padding-top:10px ;"></div>
+  <div class="remove"><p 	class="glyphicon glyphicon-trash" style="margin: 15px;"></p></div>--> 
+  <div class="cart-items"></div>
+  <div class="total">
+    <h2>Total: <span id="total-cost">0.00</span> RS</h2>
+  </div>
+  <div class="nav" style="position: fixed;bottom: 0;float: left;">
+    <button type="button" style="background-color: rgb(255, 85, 0);color: black;width: 191px;" id="close">CLOSE</button>
+   <a href="file:///E:/santho%20pro/afterbuy.html"><button type="button" style="background-color: rgb(0, 128, 60);color: white;width: 190px;" >BUY</button></a> 
+  </div> 
+</div>
+
+<!--after Cart-->
+   
+   <div class="nav" style="display: flex; color: black; text-align: center;">
+    <a href="file:///E:/santho%20pro/iie.html" style="margin-left: 570px; ">Menu</a>
+    <a href="file:///E:/santho%20pro/restaraunts.html" style="margin-left: 50px;">restaraunts</a>
+    <a href="file:///E:/santho%20pro/halls%20and%20catering.html" style="margin-left: 40px;">Banquet Halls & Catering</a>
+   </div><br>
+<div class="img">
+    <img src="C:\Users\ssant\OneDrive\Pictures\images (1).jpeg" style="width: 100%; height: 550px;">
+    <h1 style="color: burlywood; margin-left: 50px; margin-top: -400px; font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">18 YEARS OF TRADITION</h1>
+    <h2 style="color: burlywood;margin-left: 110px; font-family: 'Times New Roman', Times, serif;">Delivered to your home</h2>
+    <h1 style="color: white;text-decoration: underline;margin-left: 170px;color: blue; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;">Foodeiii..!</h1>
+    <h1 style="color: aliceblue;margin-left: 70px;">PAN INDIA DELIVERY</h1>
+    <p style="color:burlywood ;margin-left: 158px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;">on your first purchase</p>
+    <button style="border: solid; border-radius: 10px; color: black;background-color: burlywood;margin-left: 190px;">shop now</button>
+</div><br>
+
+    <h1 style="color: black;font-family: 'Times New Roman', Times, serif;margin-top: 115px;margin-left: 100px;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;text-decoration: underline;">season's special</h1>
+    <div class="item ">
+       <a href="file:///E:/santho%20pro/product%20details.html#carouseldemo"><img src="C:\Users\ssant\OneDrive\Pictures\sandwich.jpg" style="height:200px; width: 330px;" class="pic"></a> 
+        <p style="color: black;">this is best and tasty sandwich very hot and spicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:110</h4>
+        <h3 style="color: black;" class="p-title">sandwich</h3>
+
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+        <a href="file:///E:/santho%20pro/product2.html"><img src="C:\Users\ssant\OneDrive\Pictures\burger.jpg" style="height:200px; width: 330px;"class="pic"></a>
+        <p style="color: black;" >this is best and tasty burger very hot and spicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:150</h4>
+        <h3 style="color: black;" class="p-title">Burger</h3>
+  
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+        <a href="file:///E:/santho%20pro/pro3.html"><img src="C:\Users\ssant\OneDrive\Pictures\pizza.jpg" style="height:200px; width: 330px;"class="pic"></a>
+        <p style="color: black;" >this is best and tasty pizza very hot and spicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:100</h4>
+        <h3 style="color: black;" class="p-title">Pizza</h3>
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+        <a href="file:///E:/santho%20pro/set2-1.html"><img src="C:\Users\ssant\OneDrive\Pictures\chips.jpg" style="height:200px;width: 330px;"class="pic"></a>
+        <p style="color: black;" >this is best and tasty chips very hot and spicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:110</h4>
+        <h3 style="color: black;" class="p-title">Chips</h3>
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+        <a href="file:///E:/santho%20pro/set2-2.html"><img src="C:\Users\ssant\OneDrive\Pictures\download (3).jpg" style="height:200px;width: 250px;width: 330px;"class="pic"></a>
+        <p style="color: black;" >this is best and burger very hot and spicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:130</h4>
+        <h3 style="color: black;" class="p-title">burger</h3>
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+       <a href="file:///E:/santho%20pro/set2-3.html"><img src="C:\Users\ssant\OneDrive\Pictures\download (10).jpg" style="height:200px; width: 330px;"class="pic"></a> 
+        <p style="color: black;" >this is best and tasty chicken very hot and spicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:120</h4>
+        <h3 style="color: black;" class="p-title">chicken</h3>
+        <button type="button"class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+        <a href="file:///E:/santho%20pro/last1.html"><img src="C:\Users\ssant\OneDrive\Pictures\pepsi.jpg" style="height:200px; width: 330px;"class="pic"></a>
+        <p style="color: black;" >this is best and tasty pepsi very chill and juicy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:70</h4>
+        <h3 style="color: black;" class="p-title">pepsi</h3>
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+        <a href="file:///E:/santho%20pro/last2.html"> <img src="C:\Users\ssant\OneDrive\Pictures\ice.jpg" style="height:200px; width: 330px;"class="pic"></a>
+        <p style="color: black;" >this is best and tasty icecream very chill and creamy it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;" class="price">RS:80</h4>
+        <h3 style="color: black;" class="p-title">icecream</h3>
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+      <div class="item">
+       <a href=file:///E:/santho%20pro/last.html><img src="C:\Users\ssant\OneDrive\Pictures\juice.jpg" style="height:200px; width: 330px;"class="pic"></a> 
+        <p style="color: black;" >this is best and tasty fresh juice very tasty it contains proteins and other some nutrients</p><br>
+        <h4 style="color:gray;margin-top: -27px;"class="price">RS:90</h4>
+        <h3 style="color: black;" class="p-title">juice</h3>
+        <button type="button" class="add-cart" style="background-color: brown;font-style: italic; color: white;margin-top: -35px;">add to cart</button>
+      </div>
+    </div><br>
+
+      <a href="file:///E:/santho%20pro/last.html"><div class="container" style="background-color: rgb(8, 0, 255);margin-top: 1200px;margin-bottom: 300px;height: 250px;width: 1520px;"></a> 
+        <div class="footer">
+        <h1 style="color: white;font-family: Georgia, 'Times New Roman', Times, serif;text-align: center;border-radius: 0%;">Subscribe to our newsletter</h1><br>
+        <h4 style="text-align: center; color: gray;">Be the first to know about our deals.</h4><br><br>
+        <label for="Email" style="margin-left: 103px; "></label>
+        <input type="text" placeholder="Email" required>
+    </div>
+</div>
+<div class="container">
+    <div class="box">
+        <h3 class="glyphicon glyphicon-envelope"> Follow</h3><br><br>
+        <a href="https://www.instagram.com/santho_olympia?igsh=cXVjc2Z6aXZodTN6&utm_source=ig_contact_invite ">Instagram</a><br>
+        <a href="mailto:santhosh7578@example.com">mail</a>
+    </div>
+    <div class="box">
+        <h3 class="glyphicon glyphicon-home"> Company</h3><br><br>
+        <a href="file:///E:/santho%20pro/santho%20webpage.html">About</a><br>
+        <a href=file:///E:/santho%20pro/blog.html>Blogs</a>
+    </div>
+    <div class="box">
+        <h3 class="glyphicon glyphicon-user"> Contact</h3><br><br>
+        <a href=file:///E:/santho%20pro/santho%20webpage.html>About</a><br>
+        <a href="file:///E:/santho%20pro/pivacy%20policy.html">Privacy & Policy</a><br>
+        <a href=file:///E:/santho%20pro/terms%20and%20condition.html>Terms and Conditions</a>
+        
+    </div>
+  
+</div>
+<h5 style="color: #333;margin-left:600px ;">Copyright © 2025, santho Foodeiii..! Hotels Pvt Ltd</h5><br>
+<a href="https://www.instagram.com/santho_olympia?igsh=cXVjc2Z6aXZodTN6&utm_source=ig_contact_invite " ><img src="C:\Users\ssant\Downloads\instagram.png"style="height: 40px; margin-left:660px ; "></a>
+<a href="https://wa.me/918870858917?text=hi%0A" ><img src="C:\Users\ssant\Downloads\whatsapp.png"style="height: 37px; margin-left:30px ; "></a>
+<a href="mailto:santhosh7578@example.com"><img src="C:\Users\ssant\Downloads\gmail.png"style="height: 37px; margin-left:30px ; "></a>
+<!--script-->
+<script>
+const carticon = document.querySelector('.cartimg');
+const body = document.querySelector('body');
+const closea = document.querySelector('#close');
+
+let totalcost = 0;
+let itemlist = [];
+
+carticon.addEventListener('click', () => {
+  body.classList.toggle('showCart');
+});
+closea.addEventListener('click', () => {
+  body.classList.toggle('showCart');
+});
+
+const cartbuttons = document.querySelectorAll('.add-cart');
+cartbuttons.forEach((btn) => {
+  btn.addEventListener("click", addcart);
+});
+
+function addcart() {
+  let food = this.parentElement;
+  let price = parseFloat(food.querySelector('.price').innerHTML.replace("RS:", ""));
+  let productname = food.querySelector('.p-title').innerHTML;
+  let imgsrc = food.querySelector('.pic').src;
+
+  let newProduct = { price, productname, imgsrc };
+
+  if (itemlist.find((el) => el.productname === newProduct.productname)) {
+    alert('already have');
+    return;
+  } else {
+    itemlist.push(newProduct);
+  }
+
+  let newproduct = createproduct(price, productname, imgsrc);
+  let element = document.createElement('div');
+  element.innerHTML = newproduct;
+  let basket = document.querySelector('.cart-items');
+  basket.append(element);
+
+  totalcost += price;
+  updateTotal();
+
+  const removeitem = element.querySelector(".remove");
+  removeitem.addEventListener("click", () => {
+    if (confirm('Are you sure you want to remove this item?')) {
+      element.remove();
+      totalcost -= price;
+      updateTotal();
+      itemlist = itemlist.filter(item => item.productname !== productname);
+    }
+  });
+
+  const qtyInput = element.querySelector('.qty input');
+  qtyInput.addEventListener("change", changeqty);
+}
+
+function createproduct(price, productname, imgsrc) {
+  return `
+    <hr>
+    <div class="productimg">
+      <img src="${imgsrc}" alt="" style="width: 60px;">
+    </div>
+    <div class="productname">${productname}</div>
+    <div class="price">RS:${price}</div>
+    <div class="qty"><input type="number" value="1" style="width: 40px; height: 20px; margin-left: 10px; padding-top: 10px;"></div>
+    <div class="remove"><p class="glyphicon glyphicon-trash" style="margin: 15px; cursor: pointer;"></p></div>
+  `;
+}
+
+function changeqty() {
+  if (isNaN(this.value) || this.value < 1) {
+    this.value = 1;
+  }
+  updateTotal();
+}
+
+function updateTotal() {
+  const cartItems = document.querySelectorAll(".cart-items > div");
+  const pricebox = document.querySelector(".total");
+  let total = 0;
+
+  cartItems.forEach(product => {
+    let priceElement = product.querySelector(".price");
+    let surukam = parseFloat(priceElement.innerHTML.replace("RS:", ''));
+    let qty = product.querySelector(".qty input").value;
+    total += (surukam * qty);
+  });
+
+  pricebox.innerHTML = 'RS:' + total;
+}
+
+/*
+const cartContent = document.querySelector(".cart-items");
+const addToCart = item => {
+  const productImgSrc = item.querySelector(".pic").src;
+  const productTitle = item.querySelector(".p-title").textContent;
+  const productPrice = item.querySelector(".price").textContent;
+
+  const cartBox = document.createElement("div");
+  cartBox.classList.add("cart-box");
+  cartBox.innerHTML = `
+    <div class="productimg">
+      <img src="${productImgSrc}" alt="Product Image" class="itemimg">
+    </div>
+    <div class="productname">${productTitle}</div>
+    <div class="price">${productPrice}</div>
+    <div class="qty"><input type="number" style="width: 40px; height: 20px; margin-left: 10px; padding-top: 10px;" value="1"></div>
+    <div class="remove"><p class="glyphicon glyphicon-trash" style="margin: 15px; cursor: pointer;"></p></div>
+  `;
+
+  cartContent.appendChild(cartBox);
+
+  const removeButton = cartBox.querySelector(".remove");
+  removeButton.addEventListener("click", () => {
+    cartBox.remove();
+  });
+};
+*/
+
+  
+</script>
+
+
+</body>
+</html>

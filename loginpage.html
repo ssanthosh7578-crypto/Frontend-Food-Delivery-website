@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>LOGIN PAGE</title>
+    <script type="text/javascript" src="validation.js" defer></script>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body{
+         background-attachment:fixed;
+         background-repeat: no-repeat;
+         border: solid;
+         border-color: azure;
+         border-radius: 30px;
+         border-style: double;
+         height: 400px;
+         width: 400px;
+         padding: 5px 50px 50px 30px;
+         margin: 100px 100px 100px 500px;
+         
+        
+         
+    
+         
+        }
+        h1{
+        color: white;
+        list-style-type: decimal;
+       
+        }
+    .a{
+        color: white;
+        text-align: start;
+        
+    }
+    .b{
+        color: white;
+        
+        
+    }
+ .c{
+    text-align: right;
+    color: white;
+ }
+ p{
+    text-decoration: dotted;
+    text-align: justify;
+    color: rgb(169, 169, 169);
+ }
+ a{
+    color: whitesmoke;
+ }
+  input[type="submit"]:hover{
+    background-color: gray;
+}
+
+
+    </style>
+</head>
+<body background="C:\Users\ssant\OneDrive\Pictures\Saved Pictures\wp9506513.webp"style="height: 380px">
+      <center><h1><i class="fa-solid fa-right-to-bracket"></i>LOG-IN</h1><hr><br>
+        <form action="file:///C:/Users/ssant/OneDrive/%EB%AC%B8%EC%84%9C/santhosh%20html%20project/iie.html" id="form">
+            <label for="email" class="a"><i class="fa-solid fa-envelope"></i> email Address</label><br>
+            <input type="email" id="mail" placeholder="email" maxlength="25" name="email" onkeyup="validatename()">
+            <span id="mail-error"></span><br><br>
+          
+            <label for="password" class="b"><i class="fa-solid fa-key"></i> password</label><br>
+            <input type="password" id="psw" placeholder="password" maxlength="4" name="password" onkeyup="validatepassword()" required>
+            <span id="password-error"></span><br><br>
+          
+            <label for="sign in now" class="c">sign in now</label>
+            <input type="checkbox" id="checkbox" onclick="checkcheckbox()" required>
+            <span id="checkbox-error"></span><br><br>
+          
+            <input type="submit" value="LOGIN" id="submit" style="border: solid; border-radius: 25px;" onclick="buttonvalidate()" >
+            <br><br><br>
+            <a href="#">Forgot password?</a><br><br><hr>
+          
+            <p style="color: aliceblue;">
+              By clicking on <a href="file:///C:/Users/ssant/OneDrive/%EB%AC%B8%EC%84%9C/santhosh%20html%20project/signin.html" style="color: rgb(0, 89, 255);">"sign in now"</a>
+            </p>
+   
+</form>
+      
+    </center>
+    <script>
+        var maill = document.getElementById('mail-error');
+        var pass = document.getElementById('password-error');
+        var check=document.getElementById('checkbox-error');
+      
+        function validatename() {
+          var name = document.getElementById('mail').value;
+          if (name.length == 0) {
+            maill.innerHTML = "email is required";
+            return false;
+          }
+          maill.innerHTML = "valid";
+          return true;
+        }
+      
+        function validatepassword() {
+          var password = document.getElementById('psw').value;
+          if (password.length == 0) {
+            pass.innerHTML = "password required";
+            return false;
+          }
+          pass.innerHTML = "valid";
+          return true;
+        }
+      
+        function checkcheckbox() {
+          var checkbox = document.getElementById('checkbox');
+        
+          if (checkbox.checked) {
+            alert('checked');
+          } else {
+            alert('not checked');
+          }
+        }
+      
+        function buttonvalidate() {
+          if (!validatename() || !validatepassword()|| !checkcheckbox() ) {
+            alert("Please fill out all required fields.");
+            return false;
+          }
+          alert("Form submitted successfully!");
+          return true;
+        }
+      </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Validation Form</title>
+        <script type="text/javascript" src="validation.js" defer></script>
+        <style>
+            #form {
+                border: solid;
+                border-radius: 20px;
+                background-size: cover;
+                background-blend-mode: overlay;
+                background-color: black;
+                width: 250px;
+                height: 300px;
+                margin-left: 40%;
+                margin-top: 200px;
+                padding-left: 20px;
+            }
+            #btn {
+                transition: transform 0.3s ease;
+            }
+            #btn:hover {
+                transform: scale(1.1);
+            }
+        </style>
+    </head>
+    <body style="background-repeat: no-repeat; background-size: cover;">
+        <form action="file:///C:/Users/ssant/OneDrive/%EB%AC%B8%EC%84%9C/santhosh%20html%20project/loginpage.html"  id="form">
+            <label for="email" class="b">Email</label><br>
+            <input type="text" placeholder="Email" style="color: black; padding: 4px; border: solid; border-radius: 5px;" id="emailtext" onkeyup="emailvalidation()" required>
+            <span id="mail-error"></span><br>
+    
+            <label for="password" class="b">Password</label><br>
+            <input type="password" placeholder="Password" style="color: black; padding: 4px; border: solid; border-radius: 5px;" id="psw" onkeyup="passwordvalidation()" maxlength="16" required><br>
+            <span id="password-error"></span><br>
+
+            <label for="repeat-password" class="b">Repeat Password</label><br>
+            <input type="password" placeholder="Repeat Password" style="color: black; padding: 4px; border: solid; border-radius: 5px;" id="repeat-password" onkeyup="repeatpswvalidation()" maxlength="16" required ><hr>
+            <span id="repeatPassword-error"></span><br>
+
+            
+
+            <input type="submit" value="LOGIN" id="submit"  style="color:black; background-color: white; border: solid; border-radius: 4px;"  onclick="buttonvalidate()" >
+            <br>
+            <center><p style="color: white;">Already have an account <a href="file:///C:/Users/ssant/OneDrive/%EB%AC%B8%EC%84%9C/santhosh%20html%20project/loginpage.html" style="color: lightblue;">LOG-IN</a></p><br></center>
+        </form>
+    
+        <script>
+             var maill = document.getElementById('mail-error');
+             var pass = document.getElementById("password-error");
+             var repeat = document.getElementById("repeatPassword-error");
+
+            function emailvalidation(){
+                var name= document.getElementById("emailtext").value;
+                if (name.length == 0) {
+                    alert( "email is required");
+                    return false;
+                }
+                maill.innerHTML = "valid";
+                return true;
+              /*   if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
+                    alert("Please enter a valid email address");
+                    return false;
+                }
+                return true; */
+            } 
+    
+            function passwordvalidation(){
+                var passw = document.getElementById("psw").value;
+                if (passw.length == 0) {
+                    pass.innerHTML="password is required";
+                    return false;
+                }
+                pass.innerHTML="valid";
+                return true;
+             /*    if (password.length < 8) {
+                    alert("Please enter a valid password with at least 8 characters");
+                    return false;
+                }
+                return true; */
+            }
+    
+            function repeatpswvalidation(){
+                var repeatPassword = document.getElementById("repeat-password").value;
+                var password = document.getElementById("psw").value;
+                if (repeatPassword !== password) {
+            
+                  alert("not same password");
+                    return false;
+                }
+                return true;
+            }
+    
+            function buttonvalidate(){
+                if (!emailvalidation() || !passwordvalidation() || !repeatpswvalidation()) {
+                    alert("Please fill the above mentioned details");
+                    return false;
+                }
+                alert("sign in successfullu");
+                return true;
+            }
+        </script>
+    </body>
+    </html>
+    
